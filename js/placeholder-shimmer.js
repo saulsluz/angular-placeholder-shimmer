@@ -1,7 +1,7 @@
 angular.module('ngPlaceholderShimmer', [])
 
   .provider('psConfig', function () {
-    this.color = "#E6E6E6"
+    this.color = "#E2E2E2"
     this.hgcolor = "#F2F2F2"
     this.timeout = 60
     this.$get = function () {
@@ -9,10 +9,10 @@ angular.module('ngPlaceholderShimmer', [])
     }
   })
 
-  .service('psService',['$timeout', function($timeout){
+  .service('psService', ['$timeout', function ($timeout) {
     this.process;
 
-    this.close = function close(){
+    this.close = function () {
       if (!this.process) throw new Error('none process to close')
       $timeout.cancel(this.process)
     }
@@ -20,7 +20,6 @@ angular.module('ngPlaceholderShimmer', [])
 
   .factory('psFactory', ['psConfig', function (psConfig) {
     return {
-
       createGradient: function (ctx, current, order) {
         //define the colour of the gradient
         var gradient = ctx.createLinearGradient(current, 0, current * 2, 0)
@@ -28,7 +27,6 @@ angular.module('ngPlaceholderShimmer', [])
         gradient.addColorStop(order[1], psConfig.color)
         return gradient
       },
-
       getOffsetLeft: function (element) {
         var offsetLeft = 0
 
@@ -39,24 +37,20 @@ angular.module('ngPlaceholderShimmer', [])
         find(element)
         return offsetLeft
       }
-
     }
   }])
 
   .controller('psCtrl', ['psConfig', 'psService', '$scope', function (psConfig, psService, $scope) {
-
     $scope.color = psConfig.color
     $scope.hgcolor = psConfig.hgcolor
 
     $scope.current = 0
     $scope.max = 0
-
     $scope.order = $scope._order = [0, 1]
 
-    $scope.$on('$destroy',function(){
+    $scope.$on('$destroy', function () {
       psService.close()
     })
-
   }])
 
   .directive('placeholderShimmer', ['psConfig', 'psFactory', 'psService', '$interval', '$timeout', function (psConfig, psFactory, psService, $interval, $timeout) {
@@ -64,7 +58,7 @@ angular.module('ngPlaceholderShimmer', [])
       controller: 'psCtrl',
       restrict: 'E',
       scope: {},
-      link: function link(scope, tElement) {
+      link: function (scope, tElement) {
 
         var jqCanvas = angular.element(tElement).find('canvas')
 
@@ -73,62 +67,54 @@ angular.module('ngPlaceholderShimmer', [])
           if (jqCanvas.hasOwnProperty(key) && angular.isDefined(key) && !isNaN(parseInt(key))) {
             var element = jqCanvas[key];
             var offsetLeft = psFactory.getOffsetLeft(jqCanvas[key])
-            width.push(offsetLeft + (element.clientWidth*2))
+            width.push(offsetLeft + (element.clientWidth * 2))
           }
         }
 
         width.sort(function (a, b) {
           return b - a
         })
-        
+
         scope.max = width[0]
+
+        run()
+
+        $timeout(function () {
+          psService.close()
+        }, psConfig.timeout * 1000)
 
         function process() {
           var increment = 30
           var count = Math.floor(scope.max / increment)
-          var process = $interval(function () {
-            
+          return $interval(function () {
             scope.current = scope.current + increment
-
             scope.$parent.$broadcast('placeholder-shimmer-gradient-up', {
               current: scope.current,
               max: scope.max,
               order: scope.order,
               increment: increment
             })
-            
           }, 10, count)
-
-          return process
         }
 
-        function reset(){
+        function reset() {
           scope.$parent.$broadcast('placeholder-shimmer-gradient-reset')
           scope.current = 0
           scope.order.reverse()
         }
 
-
-
         function run() {
           process().then(function () {
             reset()
-
-            process().then(function(){
+            process().then(function () {
               reset()
-
               psService.process = $timeout(function () {
                 run()
-              }, 2000)
-              
+              }, 1000)
             })
           })
         }
-        run()
-        
-        $timeout(function(){
-          psService.close()
-        }, psConfig.timeout*1000)
+
       }
     }
   }])
@@ -139,68 +125,18 @@ angular.module('ngPlaceholderShimmer', [])
       controller: 'psCtrl',
       restrict: 'E',
       scope: {
-        width: '@',
-        lines: '@',
-        lineSize: '@?'
+        line: '@',
+        lineHeight: '@'
       },
-      template: '<canvas style="vertical-align: top; margin: 5px;"></canvas>',
+      template: '<div><p ng-repeat="i in lines"><ps-block style="width:100%; height: {{ lineHeight }}px;"></ps-block></p></div>',
       link: function link(scope, tElement) {
-
-        function draw(noGradient) {
-          if (noGradient == true) {
-            scope.ctx.fillStyle = psConfig.color
-          } else {
-            //define the colour of the gradient
-            scope.ctx.fillStyle = psFactory.createGradient(scope.ctx, scope.current, scope.order)
-          }
-          scope.coord.forEach(function (val) {
-            scope.ctx.fillRect(val.x, val.y, val.w, val.h)
-          })
+        
+        scope.lines = []
+        for (var x = 0; x<scope.line; x++){
+          console.log(1)
+          scope.lines.push(x)
         }
-
-        scope.$on('placeholder-shimmer-gradient-up', function (event, args) {
-          if (args.current > scope.offsetLeft) {
-            scope.current = scope.current + args.increment
-            scope.order = args.order
-            draw()
-          }
-        })
-
-        scope.$on('placeholder-shimmer-gradient-reset', function (event) {
-          scope.current = 0
-        })
-
-        var lineSize = scope.lineSize || 12
-
-        var jqCanvas = angular.element(tElement).find('canvas')
-        jqCanvas.attr('width', scope.width)
-        jqCanvas.attr('height', (scope.lines * (lineSize * 2)))
-
-        var canvas = angular.element(tElement).find('canvas')[0]
-        if (!canvas.getContext) throw new Error('canvas not supported')
-
-        scope.offsetLeft = psFactory.getOffsetLeft(canvas)
-
-        scope.ctx = canvas.getContext("2d")
-        scope.ctx.beginPath()
-
-        //define the colour of the square
-        //scope.ctx.shadowColor = '#E6E6E6';
-        //scope.ctx.shadowBlur = 1
-
-        // Draw each line
-        scope.coord = []
-        for (var x = 0; x < scope.lines; x++) {
-          var z = Math.floor(Math.random() * ((scope.width * 10) / 100))
-          scope.coord.push({
-            x: 0,
-            y: ((lineSize * 2) * x),
-            w: (scope.width - z),
-            h: lineSize
-          })
-        }
-
-        draw(true)
+        
       }
     }
   })
@@ -211,9 +147,10 @@ angular.module('ngPlaceholderShimmer', [])
       controller: 'psCtrl',
       restrict: 'E',
       scope: {
-        size: '@'
+        size: '@',
+        style: '@?'
       },
-      template: '<canvas style="vertical-align: top;"></canvas>',
+      template: '<canvas style="{{ style }}"></canvas>',
       link: function link(scope, tElement) {
 
         function draw(noGradient) {
@@ -249,11 +186,11 @@ angular.module('ngPlaceholderShimmer', [])
         switch (scope.size) {
           case 's':
             {
-              scope.a = 25
-              scope.b = 25
-              scope.c = 20
-              scope.w = 50
-              scope.h = 50
+              scope.a = 50
+              scope.b = 50
+              scope.c = 28
+              scope.w = 100
+              scope.h = 100
             }
             break;
           case 'm':
@@ -291,28 +228,26 @@ angular.module('ngPlaceholderShimmer', [])
         scope.ctx.beginPath()
 
         //define the colour of the circle
-        //ctx.shadowColor = psConfig.color
-        //ctx.shadowBlur = 10
 
         scope.ctx.lineWidth = 1
 
         draw(true)
       }
-
     }
   }])
 
-  .directive('psSquare',['psConfig', 'psFactory', function (psConfig, psFactory) {
+  .directive('psSquare', ['psConfig', 'psFactory', function (psConfig, psFactory) {
     return {
       require: '^placeholderShimmer',
       controller: 'psCtrl',
       restrict: 'E',
       scope: {
-        size: '@'
+        size: '@',
+        style: '@?'
       },
-      template: '<canvas style="vertical-align: top; padding: 5px;"></canvas>',
+      template: '<canvas style="{{ style }}"></canvas>',
       link: function link(scope, tElement) {
-        
+
         function draw(noGradient) {
           if (noGradient == true) {
             scope.ctx.fillStyle = psConfig.color
@@ -346,12 +281,12 @@ angular.module('ngPlaceholderShimmer', [])
             break;
           case 'm':
             {
-              scope.h = 100
+              scope.h = 80
             }
             break;
           case 'l':
             {
-              scope.h = 150
+              scope.h = 120
             }
             break;
           default:
@@ -369,25 +304,20 @@ angular.module('ngPlaceholderShimmer', [])
 
         scope.ctx = canvas.getContext("2d");
 
-        //define the colour of the square
-        //ctx.shadowColor = psConfig.color;
-        //ctx.shadowBlur = 10
-
         draw(true)
       }
     }
   }])
 
-  .directive('psRectangle',['psConfig', 'psFactory', function (psConfig, psFactory) {
+  .directive('psBlock', ['psConfig', 'psFactory', function (psConfig, psFactory) {
     return {
       require: '^placeholderShimmer',
       controller: 'psCtrl',
       restrict: 'E',
       scope: {
-        width: '@',
-        height: '@'
+        style: '@?'
       },
-      template: '<canvas style="vertical-align: top; padding: 5px;"></canvas>',
+      template: '<canvas height="50" width="50" style="{{ style }}" ></canvas>',
       link: function link(scope, tElement) {
 
         function draw(noGradient) {
@@ -413,19 +343,16 @@ angular.module('ngPlaceholderShimmer', [])
           scope.current = 0
         })
         var jqCanvas = angular.element(tElement).find('canvas')
-        jqCanvas.attr('width', scope.width)
-        jqCanvas.attr('height', scope.height)
+        //jqCanvas.attr('width', scope.width)
+        //jqCanvas.attr('height', scope.height)
+        scope.width = 50
+        scope.height = 50
 
         var canvas = angular.element(tElement).find('canvas')[0]
         if (!canvas.getContext) throw new Error('canvas not supported')
-        
+
         scope.offsetLeft = psFactory.getOffsetLeft(canvas)
-
         scope.ctx = canvas.getContext("2d");
-
-        //define the colour of the square
-        //ctx.shadowColor = psConfig.color;
-        //ctx.shadowBlur = 10
 
         draw(true)
       }

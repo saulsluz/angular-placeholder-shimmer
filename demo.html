@@ -8,7 +8,7 @@
       .controller('test', function ($scope, $timeout) {
         $scope.showShimmer = true
         $timeout(function () {
-          $scope.showShimmer = false
+          //$scope.showShimmer = false
         }, 3000)
       })
   </script>
@@ -25,11 +25,46 @@
   </div>
 
   <placeholder-shimmer ng-if="showShimmer == true">
-    <div>
-        <ps-circle size="l"></ps-circle>
-        <ps-text width="200" lines="5"></ps-text>
+    <table border="0">
+      <tr>
+        <td>
+          <ps-square size="s"></ps-square>
+        </td>
+        <td>
+          <ps-circle size="s"></ps-circle>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <ps-square size="m"></ps-square>
+        </td>
+        <td>
+          <ps-circle size="m"></ps-circle>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <ps-square size="l"></ps-square>
+        </td>
+        <td>
+          <ps-circle size="l"></ps-circle>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <ps-text line="2" line-height="15"></ps-text>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <ps-block style="width: 200px; height: 50px;"></ps-block>
+        </td>
+        <td>
+          <ps-block style="width: 30px; height: 130px;"></ps-block>
+        </td>
+      </tr>
     </div>
-      <ps-text width="400" lines="2" line-size="20"></ps-text>
+      
     
   </placeholder-shimmer>
 
