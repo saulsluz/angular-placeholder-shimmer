@@ -1,0 +1,38 @@
+<html ng-app="app">
+
+<head>
+  <script src="./node_modules/angular/angular.js"></script>
+  <script src="./js/placeholder-shimmer.js"></script>
+  <script type="application/javascript">
+    angular.module('app', ['ngPlaceholderShimmer'])
+      .controller('test', function ($scope, $timeout) {
+        $scope.showShimmer = true
+        $timeout(function () {
+          $scope.showShimmer = false
+        }, 3000)
+      })
+  </script>
+</head>
+
+<body ng-controller="test">
+
+  <div ng-if="showShimmer == false" style="width: 500px;">
+    <p align="justify"><img src="http://s3.amazonaws.com/libapps/accounts/27060/images/example.png" height="50" width="50" align="left"> Lorem
+      ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+
+  <placeholder-shimmer ng-if="showShimmer == true">
+    <div>
+        <ps-circle size="l"></ps-circle>
+        <ps-text width="200" lines="5"></ps-text>
+    </div>
+      <ps-text width="400" lines="2" line-size="20"></ps-text>
+    
+  </placeholder-shimmer>
+
+</body>
+
+</html>

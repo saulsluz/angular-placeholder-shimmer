@@ -1,0 +1,19 @@
+{
+  "name": "angular-placeholder-shimmer",
+  "version": "1.0.0",
+  "description": "An angular placeholder shimmer for angular applications",
+  "main": "js/placeholder-shimmer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "placeholder",
+    "shimmer",
+    "angular-application"
+  ],
+  "author": "Saul Luz <saulsluz@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.0"
+  }
+}
