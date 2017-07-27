@@ -69,6 +69,8 @@ All of components must be wrapped by placeholder-shimmer tag.
 
 #### Simple example
 
+![screenshot](https://user-images.githubusercontent.com/2475044/28691300-cd0df5c2-72f2-11e7-97ff-5b15c4b7020a.png)
+
 ```html
   <placeholder-shimmer>
     <div style="border: 1px solid #CCC; padding: 10px; margin: 10px;">
@@ -90,9 +92,6 @@ All of components must be wrapped by placeholder-shimmer tag.
   </placeholder-shimmer>
 ```
 
-It will produce this:
-![screenshot](https://user-images.githubusercontent.com/2475044/28691300-cd0df5c2-72f2-11e7-97ff-5b15c4b7020a.png)
-
 ### Customization
 
 #### Custom colors
@@ -111,31 +110,31 @@ app.config(function(psConfigProvider){
 })
 ```
 
-### Getting the control
+### The directives
 
 The isolated scope binding:
 
-#### Circle
+#### ps-circle
 
 |          property      |             values           | required |
 | ---------------------- | ------------------------------------- | -------- |
 | size                   |           `'s'`,`'m'` or `'l'`        |   yes    |
 | style                  | any css's property valid for canvas tag |          |
 
-#### Square
+#### ps-square
 
 |          property      |             values           | required |
 | ---------------------- | ------------------------------------- | -------- |
 | size                   |           `'s'`,`'m'` or `'l'`        |   yes    |
 | style                  | any css's property valid for canvas tag |          |
 
-#### Block
+#### ps-block
 
 |          property      |             values           | required |
 | ---------------------- | ------------------------------------- | -------- |
 | style                  | any css's property valid for canvas tag |          |
 
-#### Text
+#### ps-text
 
 |          property      |             values           | required |
 | ---------------------- | ------------------------------------- | -------- |
