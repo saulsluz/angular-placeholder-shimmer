@@ -4,8 +4,6 @@ A placeholder shimmer for angular applications (^1.x.x).
 
 Support [Bootstrap](https://getbootstrap.com/) (^3.x.x) and [Angular Material](https://material.angularjs.org/) (^1.x.x).
 
-Uses custom style of [dataTable](https://github.com/DataTables/DataTables).
-
 ### Installation
 
 #### Bower
