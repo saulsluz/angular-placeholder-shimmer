@@ -1,0 +1,22 @@
+{
+  "name": "angular-placeholder-shimmer",
+  "description": "A placeholder shimmer for angular applications",
+  "main": "js/placeholder-shimmer.js",
+  "authors": [
+    "Saul Luz <saulsluz@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "placeholder",
+    "shimmer",
+    "angular-application"
+  ],
+  "homepage": "https://github.com/saulsluz/angular-placeholder-shimmer",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
