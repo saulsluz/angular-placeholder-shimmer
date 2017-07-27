@@ -43,15 +43,42 @@ var app = angular.module('app', [
   'ngPlaceholderShimmer'
 ])
 ```
-### Demo
-
-#### Bootstrap
-![bootstrap-optimized](https://user-images.githubusercontent.com/2475044/28689869-7e7592d0-72ed-11e7-85a8-67e466a4a365.gif)
-
-#### Angular Material
-![angular-optimized](https://user-images.githubusercontent.com/2475044/28689868-7e71196c-72ed-11e7-9b4a-6bf2f4b6ab8b.gif)
 
 ### Usage
+
+### The directives
+
+The isolated scope binding:
+
+#### ps-circle
+
+|          property      |             values           | required |
+| ---------------------- | ------------------------------------- | -------- |
+| size                   |           `'s'`,`'m'` or `'l'`        |   yes    |
+| style                  | any css's property valid for canvas tag |          |
+
+#### ps-square
+
+|          property      |             values           | required |
+| ---------------------- | ------------------------------------- | -------- |
+| size                   |           `'s'`,`'m'` or `'l'`        |   yes    |
+| style                  | any css's property valid for canvas tag |        |
+
+#### ps-block
+
+|          property      |             values           | required |
+| ---------------------- | ------------------------------------- | -------- |
+| style                  | any css's property valid for canvas tag |        |
+
+#### ps-text
+
+|          property      |             values           | required |
+| ---------------------- | ------------------------------------- | -------- |
+| line                   | Number of lines `integer` |     yes     |
+| line-height            | Height of each line `integer`px |     yes     |
+
+
+#### Sample
 
 This plugin have three primitive types of shapes:
 
@@ -64,10 +91,6 @@ An abstracte type:
 - Text: a wrap of block type to produce lines of text like paragraphs
 
 All of components must be wrapped by placeholder-shimmer tag.
-
-#### Simple example
-
-![screenshot](https://user-images.githubusercontent.com/2475044/28691300-cd0df5c2-72f2-11e7-97ff-5b15c4b7020a.png)
 
 ```html
   <placeholder-shimmer>
@@ -90,6 +113,8 @@ All of components must be wrapped by placeholder-shimmer tag.
   </placeholder-shimmer>
 ```
 
+![screenshot](https://user-images.githubusercontent.com/2475044/28693339-88b6817a-72fa-11e7-97b4-47dcd7ca22db.png)
+
 ### Customization
 
 #### Custom colors
@@ -108,37 +133,13 @@ app.config(function(psConfigProvider){
 })
 ```
 
-### The directives
+### Demo
 
-The isolated scope binding:
+#### Bootstrap
+![bootstrap-optimized](https://user-images.githubusercontent.com/2475044/28689869-7e7592d0-72ed-11e7-85a8-67e466a4a365.gif)
 
-#### ps-circle
-
-|          property      |             values           | required |
-| ---------------------- | ------------------------------------- | -------- |
-| size                   |           `'s'`,`'m'` or `'l'`        |   yes    |
-| style                  | any css's property valid for canvas tag |          |
-
-#### ps-square
-
-|          property      |             values           | required |
-| ---------------------- | ------------------------------------- | -------- |
-| size                   |           `'s'`,`'m'` or `'l'`        |   yes    |
-| style                  | any css's property valid for canvas tag |          |
-
-#### ps-block
-
-|          property      |             values           | required |
-| ---------------------- | ------------------------------------- | -------- |
-| style                  | any css's property valid for canvas tag |          |
-
-#### ps-text
-
-|          property      |             values           | required |
-| ---------------------- | ------------------------------------- | -------- |
-| line                  | Number of lines `integer` |     yes     |
-| line-height           | Height of each line `integer`px |     yes     |
-
+#### Angular Material
+![angular-optimized](https://user-images.githubusercontent.com/2475044/28689868-7e71196c-72ed-11e7-9b4a-6bf2f4b6ab8b.gif)
 
 ### License
 
