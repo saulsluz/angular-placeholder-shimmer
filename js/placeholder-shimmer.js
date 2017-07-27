@@ -13,8 +13,7 @@ angular.module('ngPlaceholderShimmer', [])
     this.process;
 
     this.close = function () {
-      if (!this.process) throw new Error('none process to close')
-      $timeout.cancel(this.process)
+      if (this.process) $timeout.cancel(this.process)
     }
   }])
 
