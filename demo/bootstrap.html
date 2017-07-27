@@ -1,0 +1,99 @@
+<html ng-app="app">
+
+<head>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../js/placeholder-shimmer.js"></script>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <script type="application/javascript">
+    angular.module('app', ['ngPlaceholderShimmer'])
+      .controller('test', function ($scope, $timeout) {
+        $scope.isLoading = true
+        $timeout(function () {
+          $scope.isLoading = false
+        }, 3000)
+      })
+  </script>
+</head>
+
+<body ng-controller="test">
+
+  <div ng-if="isLoading == false">
+    <div class="page-header">
+      <h1>Example page header <small>Subtext for header</small></h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="https://www.ostraining.com/cdn/images/coding/bootstrap.png" width="242" height="200">
+          <div class="caption">
+            <h3>Thumbnail label</h3>
+            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
+              Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="https://www.ostraining.com/cdn/images/coding/bootstrap.png" width="242" height="200">
+          <div class="caption">
+            <h3>Thumbnail label</h3>
+            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
+              Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <placeholder-shimmer ng-if="isLoading == true">
+    <div class="page-header">
+      <ps-block style="width: 350px; height: 20px;"></ps-block>
+      <ps-block style="width: 150px; height: 10px;"></ps-block>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div style="text-align: center">
+            <p>
+              <ps-square size="l" style="height: 200px;"></ps-square>
+            </p>
+          </div>
+          <div class="caption">
+            <p style="margin-top: 20px; margin-bottom: 20px;">
+              <ps-text line="3" line-height="10" style="width: 100%"></ps-text>
+            </p>
+            <p style="margin-top: 10px; margin-bottom: 10px;">
+              <ps-block style="width: 50px; height: 20px;"></ps-block>
+              <ps-block style="width: 50px; height: 20px;"></ps-block>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div style="text-align: center">
+            <p>
+              <ps-square size="l" style="height: 200px;"></ps-square>
+            </p>
+          </div>
+          <div class="caption">
+            <p style="margin-top: 20px; margin-bottom: 20px;">
+              <ps-text line="3" line-height="10" style="width: 100%"></ps-text>
+            </p>
+            <p style="margin-top: 10px; margin-bottom: 10px;">
+              <ps-block style="width: 50px; height: 20px;"></ps-block>
+              <ps-block style="width: 50px; height: 20px;"></ps-block>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </placeholder-shimmer>
+
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<html ng-app="app">
+
+<head>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/angular-aria/angular-aria.js"></script>
+  <script src="../node_modules/angular-animate/angular-animate.js"></script>
+  <script src="../node_modules/angular-material/angular-material.js"></script>
+  <script src="../js/placeholder-shimmer.js"></script>
+  <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css">
+  <script type="application/javascript">
+    angular.module('app', ['ngPlaceholderShimmer', 'ngMaterial'])
+      .controller('test', function ($scope, $timeout) {
+        $scope.isLoading = true
+        $timeout(function () {
+          $scope.isLoading = false
+        }, 3000)
+      })
+  </script>
+</head>
+
+<body ng-controller="test">
+
+  <div ng-if="isLoading == false">
+
+    <md-content class="md-padding" layout-xs="column" layout="row" ng-cloak>
+      <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card>
+          <img ng-src="http://mvish.com/images/post/angular-material-material-design-for-angular.png" class="md-card-image" alt="Washed Out">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Action buttons</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>
+              The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+              Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+            <p>
+              The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+              Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+            <p>
+              The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+              Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button>Action 1</md-button>
+            <md-button>Action 2</md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+      <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card>
+          <img ng-src="http://mvish.com/images/post/angular-material-material-design-for-angular.png" class="md-card-image" alt="Washed Out">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Action buttons</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>
+              The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+              Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+            <p>
+              The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+              Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+            <p>
+              The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+              Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button>Action 1</md-button>
+            <md-button>Action 2</md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </md-content>
+  </div>
+
+  <placeholder-shimmer ng-if="isLoading == true">
+    <md-content class="md-padding" layout-xs="column" layout="row">
+      <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card>
+          <ps-square size="l" style="width: 100%;"></ps-square>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline"><ps-block style="width: 100%; height: 30px;"></ps-block></span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>
+              <ps-text line="3" line-height="10" style="width: 100%"></ps-text>
+            </p>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button>
+              <ps-block style="width: 100%; height: 30px;"></ps-block>
+            </md-button>
+            <md-button>
+              <ps-block style="width: 100%; height: 30px;"></ps-block>
+            </md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+      <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card>
+          <ps-square size="l" style="width: 100%;"></ps-square>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline"><ps-block style="width: 100%; height: 30px;"></ps-block></span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>
+              <ps-text line="3" line-height="10" style="width: 100%"></ps-text>
+            </p>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button>
+              <ps-block style="width: 100%; height: 30px;"></ps-block>
+            </md-button>
+            <md-button>
+              <ps-block style="width: 100%; height: 30px;"></ps-block>
+            </md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </md-content>
+  </placeholder-shimmer>
+
+</body>
+
+</html>
