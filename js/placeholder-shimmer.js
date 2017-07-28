@@ -118,7 +118,7 @@ angular.module('ngPlaceholderShimmer', [])
     }
   }])
 
-  .directive('psText', function (psConfig, psFactory) {
+  .directive('psText', ['psConfig','psFactory', function (psConfig, psFactory) {
     return {
       require: '^placeholderShimmer',
       controller: 'psCtrl',
@@ -132,13 +132,12 @@ angular.module('ngPlaceholderShimmer', [])
         
         scope.lines = []
         for (var x = 0; x<scope.line; x++){
-          console.log(1)
           scope.lines.push(x)
         }
         
       }
     }
-  })
+  }])
 
   .directive('psCircle', ['psConfig', 'psFactory', function (psConfig, psFactory) {
     return {
