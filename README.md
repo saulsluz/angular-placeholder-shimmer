@@ -136,10 +136,12 @@ app.config(function(psConfigProvider){
 ### Demo
 
 #### Bootstrap
-![bootstrap-optimized](https://user-images.githubusercontent.com/2475044/28689869-7e7592d0-72ed-11e7-85a8-67e466a4a365.gif)
+
+![bootstrap](https://user-images.githubusercontent.com/2475044/28719076-025985d4-737f-11e7-8b0e-6bd5f208a144.gif)
 
 #### Angular Material
-![angular-optimized](https://user-images.githubusercontent.com/2475044/28689868-7e71196c-72ed-11e7-9b4a-6bf2f4b6ab8b.gif)
+
+![material](https://user-images.githubusercontent.com/2475044/28719075-02534002-737f-11e7-9de8-948b2ad7c221.gif)
 
 ### License
 
