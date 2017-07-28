@@ -1,8 +1,8 @@
 angular.module('ngPlaceholderShimmer', [])
 
   .provider('psConfig', function () {
-    this.color = "#E2E2E2"
-    this.hgcolor = "#F2F2F2"
+    this.color = "#EFEFEF"
+    this.hgcolor = "#F6F6F6"
     this.timeout = 60
     this.$get = function () {
       return this
@@ -185,29 +185,29 @@ angular.module('ngPlaceholderShimmer', [])
         switch (scope.size) {
           case 's':
             {
-              scope.a = 50
-              scope.b = 50
-              scope.c = 28
-              scope.w = 100
-              scope.h = 100
+              scope.a = 30
+              scope.b = 30
+              scope.c = 30
+              scope.w = 70
+              scope.h = 70
             }
             break;
           case 'm':
             {
-              scope.a = 50
-              scope.b = 50
+              scope.a = 40
+              scope.b = 40
               scope.c = 40
-              scope.w = 100
-              scope.h = 100
+              scope.w = 90
+              scope.h = 90
             }
             break;
           case 'l':
             {
-              scope.a = 75
-              scope.b = 75
+              scope.a = 60
+              scope.b = 60
               scope.c = 60
-              scope.w = 150
-              scope.h = 150
+              scope.w = 130
+              scope.h = 130
             }
             break;
           default:
