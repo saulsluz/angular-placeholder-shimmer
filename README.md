@@ -2,7 +2,7 @@
 
 A placeholder shimmer for angular applications (^1.x.x).
 
-it support [Bootstrap](https://getbootstrap.com/) (^3.x.x) and [Angular Material](https://material.angularjs.org/) (^1.x.x).
+it supports [Bootstrap](https://getbootstrap.com/) (^3.x.x) and [Angular Material](https://material.angularjs.org/) (^1.x.x).
 
 ### Installation
 
@@ -55,42 +55,42 @@ The isolated scope binding:
 |          property      |             values           | required |
 | ---------------------- | ------------------------------------- | -------- |
 | size                   |           `'s'`,`'m'` or `'l'`        |   yes    |
-| style                  | any css's property valid for canvas tag |          |
+| style                  | Any css property valid for canvas tag |          |
 
 #### ps-square
 
 |          property      |             values           | required |
 | ---------------------- | ------------------------------------- | -------- |
 | size                   |           `'s'`,`'m'` or `'l'`        |   yes    |
-| style                  | any css's property valid for canvas tag |        |
+| style                  | Any css property valid for canvas tag |        |
 
 #### ps-block
 
 |          property      |             values           | required |
 | ---------------------- | ------------------------------------- | -------- |
-| style                  | any css's property valid for canvas tag |        |
+| style                  | Any css property valid for canvas tag |        |
 
 #### ps-text
 
 |          property      |             values           | required |
 | ---------------------- | ------------------------------------- | -------- |
-| line                   | Number of lines `integer` |     yes     |
-| line-height            | Height of each line `integer`px |     yes     |
+| line                   | Number of lines (`integer`) |     yes     |
+| line-height            | Height of each line (`integer`px) |     yes     |
 
 
 #### Sample
 
-This plugin have three primitive types of shapes:
+This plugin have three primitive types of shape:
 
-- Circle: to draw an circle
-- Square: to draw an square
+- Circle: to draw a circle
+- Square: to draw a square
 - Block: to draw any type of block (squares or rectangles)
 
 An abstracte type:
 
 - Text: a wrap of block type to produce lines of text like paragraphs
 
-All of components must be wrapped by placeholder-shimmer tag.
+All components must be wrapped by placeholder-shimmer tag.
 
 ```html
   <placeholder-shimmer>
