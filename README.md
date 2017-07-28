@@ -113,7 +113,7 @@ All of components must be wrapped by placeholder-shimmer tag.
   </placeholder-shimmer>
 ```
 
-![screenshot](https://user-images.githubusercontent.com/2475044/28693339-88b6817a-72fa-11e7-97b4-47dcd7ca22db.png)
+![screenshot](https://user-images.githubusercontent.com/2475044/28717979-585f4e8c-737a-11e7-9342-2381a1a0a91d.png)
 
 ### Customization
 
