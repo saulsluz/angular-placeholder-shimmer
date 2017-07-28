@@ -97,17 +97,17 @@ All of components must be wrapped by placeholder-shimmer tag.
     <div style="border: 1px solid #CCC; padding: 10px; margin: 10px;">
       <div>
         <div style="float:left">
-          <ps-circle size="s"></ps-circle>
+          <ps-square size="s"></ps-square>
         </div>
         <p>
-          <ps-block style="width: 230px; height: 10px; margin-top: 30px;"></ps-block>
+          <ps-block style="width: 230px; height: 7px; margin-left: 10px; margin-top: 10px;"></ps-block>
         </p>
         <p>
-          <ps-block style="width: 200px; height: 10px;"></ps-block>
+          <ps-block style="width: 200px; height: 7px; margin-left: 10px;"></ps-block>
         </p>
       </div>
-      <p>
-        <ps-text line="2" line-height="10" style="width: 300px;"></ps-text>
+      <p style="padding-top: 3px;">
+        <ps-text line="2" line-height="7" style="width: 300px; "></ps-text>
       </p>
     </div>
   </placeholder-shimmer>
@@ -123,8 +123,8 @@ It's suportted custom labels by Provider property:
 
 |   property       |          default value             |
 | ---------------- | ---------------------------------- |
-| color     | `'#E2E2E2'` |
-| hgcolor   | `'#F2F2F2'` |
+| color     | `'#EFEFEF'` |
+| hgcolor   | `'#F6F6F6'` |
 
 ```js
 app.config(function(psConfigProvider){
