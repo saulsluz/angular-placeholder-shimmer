@@ -1,7 +1,10 @@
 {
   "name": "angular-placeholder-shimmer",
-  "description": "A placeholder shimmer for angular applications",
-  "main": "js/placeholder-shimmer.js",
+  "description": "A placeholder shimmer for angularjs applications",
+  "main": [
+    "js/placeholder-shimmer.js",
+    "css/placeholder-shimmer.css"
+  ],
   "authors": [
     "Saul Luz <saulsluz@gmail.com>"
   ],

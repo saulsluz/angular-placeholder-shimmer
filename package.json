@@ -1,8 +1,7 @@
 {
   "name": "angular-placeholder-shimmer",
-  "version": "1.0.9",
-  "description": "A placeholder shimmer for angular applications",
-  "main": "js/placeholder-shimmer.js",
+  "version": "1.2.0",
+  "description": "A placeholder shimmer for angularjs applications",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
