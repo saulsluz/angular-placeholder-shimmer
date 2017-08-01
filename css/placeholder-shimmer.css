@@ -1,0 +1,6 @@
+.shimmer-transition {
+  transition: opacity linear 0.5s;
+}
+.shimmer-opacity {
+  opacity: 0.5;
+}
