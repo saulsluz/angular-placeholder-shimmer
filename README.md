@@ -13,25 +13,19 @@ it supports [Bootstrap](https://getbootstrap.com/) (^3.x.x) and [Angular Materia
 Embed it in your HTML:
 
 ```html
-<script src="./bower_components/angular-placeholder-shimmer/dist/placeholder-shimmer.min.js"></script>
+<script src="./bower_components/angular-placeholder-shimmer/js/placeholder-shimmer.js"></script>
+<link rel="stylesheet" href="./bower_components/angular-placeholder-shimmer/css/placeholder-shimmer.css">
 ```
 
-#### npm
+#### NPM
 
 `$ npm install angular-placeholder-shimmer`
 
 Embed it in your HTML:
 
 ```html
-<script src="./node_modules/angular-placeholder-shimmer/dist/placeholder-shimmer.min.js"></script>
-```
-
-#### CDN
-
-Provided by [RawGit](https://rawgit.com/):
-
-```html
-<script src="https://cdn.rawgit.com/saulsluz/angular-placeholder-shimmer/594a8fe7/js/placeholder-shimmer.js"></script>
+<script src="./node_modules/angular-placeholder-shimmer/js/placeholder-shimmer.js"></script>
+<link rel="stylesheet" href="./node_modules/angular-placeholder-shimmer/css/placeholder-shimmer.css">
 ```
 
 #### Dependency injection
@@ -93,27 +87,27 @@ An abstracte type:
 All components must be wrapped by placeholder-shimmer tag.
 
 ```html
-  <placeholder-shimmer>
-    <div style="border: 1px solid #CCC; padding: 10px; margin: 10px;">
-      <div>
-        <div style="float:left">
-          <ps-square size="s"></ps-square>
-        </div>
-        <p>
-          <ps-block style="width: 230px; height: 7px; margin-left: 10px; margin-top: 10px;"></ps-block>
-        </p>
-        <p>
-          <ps-block style="width: 200px; height: 7px; margin-left: 10px;"></ps-block>
-        </p>
+<placeholder-shimmer>
+  <div style="padding: 10px; margin: 10px;">
+    <div>
+      <div style="float:left">
+        <ps-square size="s"></ps-square>
       </div>
-      <p style="padding-top: 3px;">
-        <ps-text line="2" line-height="7" style="width: 300px; "></ps-text>
+      <p>
+        <ps-block style="width: 230px; height: 7px; margin-left: 10px; margin-top: 10px;"></ps-block>
+      </p>
+      <p>
+        <ps-block style="width: 200px; height: 7px; margin-left: 10px;"></ps-block>
       </p>
     </div>
-  </placeholder-shimmer>
+    <p style="padding-top: 3px;">
+      <ps-text line="2" line-height="7" style="width: 300px; "></ps-text>
+    </p>
+  </div>
+</placeholder-shimmer>
 ```
 
-![screenshot](https://user-images.githubusercontent.com/2475044/28717979-585f4e8c-737a-11e7-9342-2381a1a0a91d.png)
+![screenshot](https://user-images.githubusercontent.com/2475044/28840183-966a875a-76cc-11e7-8cb6-2bbe2543ccee.png)
 
 ### Customization
 
@@ -124,24 +118,12 @@ It's suportted custom labels by Provider property:
 |   property       |          default value             |
 | ---------------- | ---------------------------------- |
 | color     | `'#EFEFEF'` |
-| hgcolor   | `'#F6F6F6'` |
 
 ```js
 app.config(function(psConfigProvider){
   psConfigProvider.color='red'
-  psConfigProvider.hgcolor='blue'
 })
 ```
-
-### Demo
-
-#### Bootstrap
-
-![bootstrap](https://user-images.githubusercontent.com/2475044/28719076-025985d4-737f-11e7-8b0e-6bd5f208a144.gif)
-
-#### Angular Material
-
-![material](https://user-images.githubusercontent.com/2475044/28719075-02534002-737f-11e7-9de8-948b2ad7c221.gif)
 
 ### License
 
