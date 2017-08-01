@@ -2,14 +2,15 @@
 
 <head>
   <script src="../bower_components/angular/angular.js"></script>
+  <link rel="stylesheet" href="../css/placeholder-shimmer.css">
   <script src="../js/placeholder-shimmer.js"></script>
   <script type="application/javascript">
     angular.module('app', ['ngPlaceholderShimmer'])
       .controller('test', function ($scope, $timeout) {
-        $scope.isLoading = true
-        $timeout(function () {
-          $scope.isLoading = false
-        }, 3000)
+        //$scope.isLoading = true
+        //$timeout(function () {
+        //  $scope.isLoading = false
+        //}, 3000)
       })
   </script>
 </head>
