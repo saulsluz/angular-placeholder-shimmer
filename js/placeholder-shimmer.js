@@ -61,12 +61,13 @@
           function run() {
             $interval(function(){
               process()
-            },1500, (psConfig.timeout*1000)/1500)
+            },1200, (psConfig.timeout*1000)/1200)
           }
 
           $timeout(function(){
             if(!jqCanvas) jqCanvas = angular.element(tElement).find('canvas')
             if(!jqCanvas.hasClass('shimmer-transition')) jqCanvas.addClass('shimmer-transition')
+            process()
             run()
           },50)
 
