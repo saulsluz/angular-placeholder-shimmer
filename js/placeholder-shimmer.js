@@ -50,6 +50,7 @@
         link: function (scope, tElement) {
 
           var jqCanvas;
+          var cleanInterval;
           
           function process() {
             jqCanvas.addClass('shimmer-opacity')
@@ -59,7 +60,7 @@
           }
 
           function run() {
-            $interval(function(){
+							cleanInterval = $interval(function(){
               process()
             },1200, (psConfig.timeout*1000)/1200)
           }
@@ -71,6 +72,11 @@
             run()
           },50)
 
+          scope.$on('$destroy', function() {
+              if(cleanInterval){
+                $interval.cancel(cleanInterval);
+              }
+					});
         }
       }
     }])
